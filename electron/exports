@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # current workspace
 export ELECTRON_WORKSPACE="$HOME/Developer/electron-gn"

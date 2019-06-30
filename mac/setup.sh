@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
 bold "=== macOS dotfiles by @deermichel ==="\
 
 source ./mac/apps.sh
-source ./mac/misc.sh
+source ./common/misc.sh
 
 bold "=== Let's go ==="

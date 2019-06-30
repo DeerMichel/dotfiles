@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 bold " * Applications *"
 
@@ -30,9 +30,11 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # nvm
 info "Installing Node Version Manager (nvm)"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-# load nvm to install node (later in .*rc file)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# add nvm to .rc file
+echo -e "\n# nvm" >> ~/.zshrc
+echo "export NVM_DIR=\""'$HOME'"/.nvm\"" >> ~/.zshrc
+echo "[ -s \""'$NVM_DIR'"/nvm.sh\" ] && \. \""'$NVM_DIR'"/nvm.sh\" # This loads nvm" >> ~/.zshrc
+source ~/.zshrc
 
 # Node
 info "Installing Node"

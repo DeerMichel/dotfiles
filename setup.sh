@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # happy terminal
 source ./common/print.sh

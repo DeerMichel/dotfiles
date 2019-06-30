@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # navigate to electron dir
 alias e='cd $ELECTRON_WORKSPACE/src/electron'

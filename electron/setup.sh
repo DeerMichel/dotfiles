@@ -1,13 +1,15 @@
-#!/bin/bash
+#!/bin/zsh
 
 source ./common/print.sh
 bold " * Electron *"
+
+# TODO: zsh patch
 
 # depot tools
 info "Installing depot tools"
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git ~/Developer/depot_tools
 
-# exports and aliases
+# dotfiles
 info "Copying dotfiles"
 mkdir -p ~/.dotfiles/aliases
 cp ./electron/aliases ~/.dotfiles/aliases/electron

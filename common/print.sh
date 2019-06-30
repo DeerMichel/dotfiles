@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # colors
 RESET=$(printf "\033[m")
