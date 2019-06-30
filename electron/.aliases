@@ -87,4 +87,12 @@ electron_run_tests() {
 }
 
 # run electron build
-alias erb='$ELECTRON_WORKSPACE/src/out/Debug/Electron.app/Contents/MacOS/Electron'
+alias erb='electron_run_build'
+electron_run_build() {
+  echo "[info] running electron"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    $ELECTRON_WORKSPACE/src/out/Debug/Electron.app/Contents/MacOS/Electron
+  else
+    echo "[error] unsupported operating system '$OSTYPE'"
+  fi
+}
