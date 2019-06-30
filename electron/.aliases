@@ -30,7 +30,14 @@ electron_fresh_build() {
   gclient sync --with_branch_heads --with_tags
   # set remote url
   cd $ELECTRON_WORKSPACE/src/electron
-  git checkout master
+  # checkout specific branch
+  if [[ -n "$1" ]]; then
+    echo "[info] checkout '$1'"
+    git checkout $1
+  else
+    echo "[info] checkout 'master'"
+    git checkout master
+  fi
   git remote set-url origin https://github.com/electron/electron
   git pull
   gclient sync -f
@@ -52,14 +59,21 @@ electron_build() {
   cd $curr_dir # return
 }
 
+# electron recompile node headers
+alias enh='electron_node_headers'
+electron_node_headers() {
+  echo "[info] recompiling node headers"
+  curr_dir=$PWD # save cwd
+  cd $ELECTRON_WORKSPACE/src
+  ninja -C out/Debug third_party/electron_node:headers # recompile node headers
+  cd $curr_dir # return
+}
+
 # run electron tests
 alias ert='electron_run_tests'
 electron_run_tests() {
   echo "[info] running electron tests"
   curr_dir=$PWD # save cwd
-  ebd # rebuild electron
-  cd $ELECTRON_WORKSPACE/src
-  ninja -C out/Debug third_party/electron_node:headers # recompile node headers
   if [[ "$1" == "-r" ]]; then
     echo "[info] only remote process"
     e && yarn test --ci --runners=remote
