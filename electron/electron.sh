@@ -1,5 +1,15 @@
 #!/bin/zsh
 
+# current workspace
+export ELECTRON_WORKSPACE="$HOME/Developer/electron-gn"
+
+# depot_tools
+export PATH=$PATH:~/Developer/depot_tools
+
+# sccache
+export SCCACHE_BUCKET="electronjs-sccache"
+export SCCACHE_TWO_TIER=true
+
 # navigate to electron dir
 alias e='cd $ELECTRON_WORKSPACE/src/electron'
 
