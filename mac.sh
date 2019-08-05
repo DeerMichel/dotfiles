@@ -22,9 +22,12 @@ defaults write com.apple.finder FXPreferredSearchViewStyleVersion -string "Nlsv"
 defaults write com.apple.dock tilesize -int 48
 # dock: hide recents
 defaults write com.apple.dock "show-recents" -bool false
+# menubar: show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent -string YES
 # restart apps
 killall "Finder" &> /dev/null
 killall "Dock" &> /dev/null
+killall "SystemUIServer" &> /dev/null
 
 echo "- installing macOS updates"
 sudo softwareupdate -i -a
