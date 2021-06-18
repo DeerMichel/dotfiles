@@ -3,9 +3,12 @@
 echo "- setting preferences"
 # general: show all file extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# general: disable are you sure to open this app dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
 # general: disable text autocorrect
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # finder: show connected servers on desktop
@@ -21,7 +24,7 @@ defaults write com.apple.finder FXPreferredSearchViewStyleVersion -string "Nlsv"
 # dock: set icon size
 defaults write com.apple.dock tilesize -int 48
 # dock: hide recents
-defaults write com.apple.dock "show-recents" -bool false
+defaults write com.apple.dock show-recents -bool false
 # menubar: show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -string YES
 # restart apps
@@ -38,33 +41,29 @@ xcode-select --install
 echo
 
 echo "- installing Homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew update
 brew upgrade
 echo
 
 echo "- installing iTerm2"
-brew cask install iterm2
+brew install iterm2
 # disable prompt when quitting iterm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 echo
 
-echo "- installing yarn"
-brew install yarn
-echo
-
 echo "- installing Google Chrome"
-brew cask install google-chrome
+brew install google-chrome
 echo
 
 echo "- installing Visual Studio Code"
-brew cask install visual-studio-code
+brew install visual-studio-code
 echo
 
 echo "- installing Spotify"
-brew cask install spotify
+brew install spotify
 echo
 
 echo "- installing Slack"
-brew cask install slack
+brew install slack
 echo

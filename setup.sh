@@ -3,11 +3,11 @@
 echo "** dotfiles by @deermichel **\n"
 
 echo "- installing Oh My Zsh"
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo
 
 echo "- installing Node Version Manager (nvm)"
-curl -fsSo- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | zsh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | zsh
 source ~/.zshrc
 echo
 
