@@ -23,6 +23,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.finder FXPreferredSearchViewStyleVersion -string "Nlsv"
 # dock: set icon size
 defaults write com.apple.dock tilesize -int 48
+defaults write com.apple.dock size-immutable -bool yes
 # dock: hide recents
 defaults write com.apple.dock show-recents -bool false
 # menubar: show battery percentage
